@@ -1,3 +1,4 @@
 admin/backup_soal/
-config/*
+config/config.default.php
+config/config.database.php
 files/*
