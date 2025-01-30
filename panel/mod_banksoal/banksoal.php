@@ -744,9 +744,9 @@ if ($ac == '') :
                                                             $ext = explode(".", $soal['file1']);
                                                             $ext = end($ext);
                                                             if (in_array($ext, $image)) {
-                                                                echo "<p style='margin-top: 5px'><img src='$homeurl/$soal[file1]' style='max-width:200px;' /></p>";
+                                                                echo "<p style='margin-top: 5px'><img src='$homeurl/files/$soal[file1]' style='max-width:200px;' /></p>";
                                                             } elseif (in_array($ext, $audio)) {
-                                                                echo "<p style='margin-top: 5px'><audio controls><source src='$homeurl/$soal[file1]' type='audio/$ext'>Your browser does not support the audio tag.</audio></p>";
+                                                                echo "<p style='margin-top: 5px'><audio controls><source src='$homeurl/files/$soal[file1]' type='audio/$ext'>Your browser does not support the audio tag.</audio></p>";
                                                             } else {
                                                                 echo "File tidak didukung!";
                                                             }
