@@ -1,25 +1,25 @@
 <?php
 
-// $browser = $_SERVER['HTTP_USER_AGENT'];
-// // die($browser);
-// $app = $_SERVER['HTTP_X_REQUESTED_WITH'];
-// // die($app);
+$browser = $_SERVER['HTTP_USER_AGENT'];
+// die($browser);
+$app = $_SERVER['HTTP_X_REQUESTED_WITH'];
+// die($app);
 
-// $pecah = explode('SEB', $browser);
-// $pecah2 = explode('EXAM', $app);
-// $pecah3 = explode('exam', $app);
+$pecah = explode('SEB', $browser);
+$pecah2 = explode('EXAM', $app);
+$pecah3 = explode('exam', $app);
 
-// if(count($pecah) <= 1)
-// {
-// 	if(count($pecah2) <= 1)
-// 	{
-// 		if(count($pecah3) <= 1)
-// 		{
-// 			echo "Anda terdeksi tidak menggunakan aplikasi Exambro ataupun SEB. Anda tidak bisa mengerjakan ujian ini.";
-// 			die();
-// 		}
-// 	}
-// }
+if(count($pecah) <= 1)
+{
+	if(count($pecah2) <= 1)
+	{
+		if(count($pecah3) <= 1)
+		{
+			echo "Anda terdeksi tidak menggunakan aplikasi Exambro ataupun SEB. Anda tidak bisa mengerjakan ujian ini.";
+			die();
+		}
+	}
+}
 
 
 require("config/config.default.php");
