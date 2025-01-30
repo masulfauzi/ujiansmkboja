@@ -78,7 +78,8 @@ if ($ac == '') :
                                                         <small class='label label-danger'><?= $mapel['opsi'] ?> opsi</small>
 
                                                         Essai : <small class='label label-warning'><?= $mapel['tampil_esai'] ?>/<?= $mapel['jml_esai'] ?></small>
-                                                        <small class='label label-danger'><?= $mapel['bobot_esai'] ?> %</small></p>
+                                                        <small class='label label-danger'><?= $mapel['bobot_esai'] ?> %</small>
+                                                    </p>
                                                     <p> KKM : <small class='label label-danger'><?= $mapel['kkm'] ?></small>
                                                         Kelas : <?php
                                                                 $dataArray = unserialize($mapel['kelas']);
@@ -672,7 +673,7 @@ if ($ac == '') :
         $hasil2 = mysqli_query($koneksi, "TRUNCATE TABLE savsoft_options");
     }
     $namamapel = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM mapel WHERE id_mapel='$id_mapel'"));
-    $url_jawaban = 'https://apps.smkn2semarang.sch.id/ujian/jawaban/';
+    $url_jawaban = $homeurl . '/files';
     if ($namamapel['jml_esai'] == 0) {
         $hide = 'hidden';
     } else {
@@ -726,10 +727,10 @@ if ($ac == '') :
                                                             $ext = explode(".", $soal['file']);
                                                             $ext = end($ext);
                                                             if (in_array($ext, $image)) {
-                                                                $url_sianida = 'https://apps.smkn2semarang.sch.id/ujian/soal';
-                                                                echo "<p style='margin-bottom: 5px'><img src='$url_sianida/$soal[file]' style='max-width:200px;'/></p>";
+                                                                // $url_sianida = 'https://apps.smkn2semarang.sch.id/ujian/soal';
+                                                                echo "<p style='margin-bottom: 5px'><img src='$homeurl/files/$soal[file]' style='max-width:200px;'/></p>";
                                                             } elseif (in_array($ext, $audio)) {
-                                                                echo "<p style='margin-bottom: 5px'><audio controls><source src='$url_sianida/$soal[file]' type='audio/$ext'>Your browser does not support the audio tag.</audio></p>";
+                                                                echo "<p style='margin-bottom: 5px'><audio controls><source src='$homeurl/files/$soal[file]' type='audio/$ext'>Your browser does not support the audio tag.</audio></p>";
                                                             } else {
                                                                 echo "File tidak didukung!";
                                                             }
