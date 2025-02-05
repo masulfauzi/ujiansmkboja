@@ -163,7 +163,7 @@
             <?php } else { ?>
                 $('#divstatus').load("mod_status/statusall.php");
             <?php } ?>
-        }, 10000
+        }, 60000
     );
 
     function fullScreen(element) {
