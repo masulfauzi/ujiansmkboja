@@ -156,15 +156,11 @@
     </div>
 <?php endif ?>
 <script>
-    var autoRefresh = setInterval(
-        function() {
-            <?php if (isset($_GET['id'])) { ?>
-                $('#divstatus').load("mod_status/statusall.php?idu=<?= $_GET['id'] ?>");
-            <?php } else { ?>
-                $('#divstatus').load("mod_status/statusall.php");
-            <?php } ?>
-        }, 60000
-    );
+    <?php if (isset($_GET['id'])) { ?>
+        $('#divstatus').load("mod_status/statusall.php?idu=<?= $_GET['id'] ?>");
+    <?php } else { ?>
+        $('#divstatus').load("mod_status/statusall.php");
+    <?php } ?>
 
     function fullScreen(element) {
         if (element.requestFullScreen) {
