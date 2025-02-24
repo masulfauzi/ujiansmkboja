@@ -53,8 +53,10 @@ $image = array('jpg', 'jpeg', 'png', 'gif', 'bmp', 'JPG', 'JPEG', 'PNG', 'GIF', 
                         </div>
                         <div class='col-md-12'>
                             <?php
-                            $url_sianida = 'https://apps.smkn2semarang.sch.id/ujian/soal/';
-                            $url_jawaban = 'https://apps.smkn2semarang.sch.id/ujian/jawaban/';
+                            // $url_sianida = 'https://apps.smkn2semarang.sch.id/ujian/soal/';
+                            $url_sianida = 'http://36.91.81.197/files/';
+                            // $url_jawaban = 'https://apps.smkn2semarang.sch.id/ujian/jawaban/';
+                            $url_jawaban = 'http://36.91.81.197/files/';
                             if ($soal['file'] <> '') {
                                 $ext = explode(".", $soal['file']);
                                 $ext = end($ext);
