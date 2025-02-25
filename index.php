@@ -1013,19 +1013,19 @@ $tglsekarang = time();
 
         /* Function to open fullscreen mode */
         function openFullscreen() {
-            if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-            } else if (elem.mozRequestFullScreen) {
-                /* Firefox */
-                elem.mozRequestFullScreen();
-            } else if (elem.webkitRequestFullscreen) {
-                /* Chrome, Safari & Opera */
-                elem.webkitRequestFullscreen();
-            } else if (elem.msRequestFullscreen) {
-                /* IE/Edge */
-                elem = window.top.document.body; //To break out of frame in IE
-                elem.msRequestFullscreen();
-            }
+            // if (elem.requestFullscreen) {
+            //     elem.requestFullscreen();
+            // } else if (elem.mozRequestFullScreen) {
+            //     /* Firefox */
+            //     elem.mozRequestFullScreen();
+            // } else if (elem.webkitRequestFullscreen) {
+            //     /* Chrome, Safari & Opera */
+            //     elem.webkitRequestFullscreen();
+            // } else if (elem.msRequestFullscreen) {
+            //     /* IE/Edge */
+            //     elem = window.top.document.body; //To break out of frame in IE
+            //     elem.msRequestFullscreen();
+            // }
         }
         swal({
             title: 'Peraturan Ujian',
@@ -1042,12 +1042,12 @@ $tglsekarang = time();
             }
         })
         
-        if (document.addEventListener) {
-            document.addEventListener('fullscreenchange', exitHandler, false);
-            document.addEventListener('mozfullscreenchange', exitHandler, false);
-            document.addEventListener('MSFullscreenChange', exitHandler, false);
-            document.addEventListener('webkitfullscreenchange', exitHandler, false);
-        }
+        // if (document.addEventListener) {
+        //     document.addEventListener('fullscreenchange', exitHandler, false);
+        //     document.addEventListener('mozfullscreenchange', exitHandler, false);
+        //     document.addEventListener('MSFullscreenChange', exitHandler, false);
+        //     document.addEventListener('webkitfullscreenchange', exitHandler, false);
+        // }
 
         function exitHandler() {
             if (document.webkitIsFullScreen === false) {
