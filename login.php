@@ -1,35 +1,31 @@
 <?php
 
-$browser = $_SERVER['HTTP_USER_AGENT'];
-// die($browser);
-$app = $_SERVER['HTTP_X_REQUESTED_WITH'];
-// die($app);
+    $browser = $_SERVER['HTTP_USER_AGENT'];
+    // die($browser);
+    $app = $_SERVER['HTTP_X_REQUESTED_WITH'];
+    // die($app);
 
-$pecah = explode('SEB', $browser);
-$pecah2 = explode('EXAM', $app);
-$pecah3 = explode('exam', $app);
+    $pecah  = explode('SEB', $browser);
+    $pecah2 = explode('EXAM', $app);
+    $pecah3 = explode('exam', $app);
 
-if(count($pecah) <= 1)
-{
-	if(count($pecah2) <= 1)
-	{
-		if(count($pecah3) <= 1)
-		{
-			echo "Anda terdeksi tidak menggunakan aplikasi Exambro ataupun SEB. Anda tidak bisa mengerjakan ujian ini.";
-			die();
-		}
-	}
-}
+    if (count($pecah) <= 1) {
+        if (count($pecah2) <= 1) {
+            if (count($pecah3) <= 1) {
+                echo "Anda terdeksi tidak menggunakan aplikasi Exambro ataupun SEB. Anda tidak bisa mengerjakan ujian ini.";
+                die();
+            }
+        }
+    }
 
-
-require("config/config.default.php");
-require("config/config.candy.php");
+    require "config/config.default.php";
+    require "config/config.candy.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<title>(<?php echo SERVER ?>) Login | <?php echo $setting['aplikasi']; ?></title>
+	<title>(<?php echo SERVER ?>) Login |<?php echo $setting['aplikasi']; ?></title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!--===============================================================================================-->
@@ -48,7 +44,7 @@ require("config/config.candy.php");
 	<link rel='stylesheet' href='<?php echo $homeurl; ?>/plugins/sweetalert2/dist/sweetalert2.min.css'>
 </head>
 
-<body style="background: url('<?= $setting['bc'] ?>');background-size:cover;background-position: center;background-repeat: no-repeat;">
+<body style="background: url('<?php echo $setting['bc'] ?>');background-size:cover;background-position: center;background-repeat: no-repeat;">
 
 	<div class="limiter">
 		<div class="container-login100">
@@ -82,7 +78,7 @@ require("config/config.candy.php");
 								Login
 							</button>
 						</div>
-						<p><small>Support By <?= APLIKASI . " v" . VERSI . " r" . REVISI ?></small></p>
+						<p><small>Support By						                     <?php echo APLIKASI . " v" . VERSI . " r" . REVISI ?></small></p>
 					</div>
 
 
