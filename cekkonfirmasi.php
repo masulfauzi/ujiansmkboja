@@ -38,8 +38,8 @@ else:
         if ($nilaix['ujian_selesai'] == ''):
             include_once("aturanlanjut.php");
             if ($nilaix['ujian_mulai'] != NULL) {
-                die("ujian mulai null");
-                // mysqli_query($koneksi, "UPDATE nilai set online='1', ujian_mulai = 'date('Y-m-d H:i:s')' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
+                // die("ujian mulai null");
+                mysqli_query($koneksi, "UPDATE nilai set online='1', ujian_mulai = 'date('Y-m-d H:i:s')' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
             } else {
                 die("ujian mulai not null");
                 // mysqli_query($koneksi, "UPDATE nilai set online='1' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
