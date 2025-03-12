@@ -36,12 +36,14 @@ else:
     $ceknilai = mysqli_num_rows($query);
     if ($ceknilai <> 0) {
         if ($nilaix['ujian_selesai'] == ''):
-            if ($nilaix['ujian_mulai'] != NULL) {
-                mysqli_query($koneksi, "UPDATE nilai set online='1' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
-            } else {
-                mysqli_query($koneksi, "UPDATE nilai set online='1', ujian_mulai = 'date('Y-m-d H:i:s')' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
-            }
             include_once("aturanlanjut.php");
+            if ($nilaix['ujian_mulai'] != NULL) {
+                die("ujian mulai null");
+                // mysqli_query($koneksi, "UPDATE nilai set online='1', ujian_mulai = 'date('Y-m-d H:i:s')' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
+            } else {
+                die("ujian mulai not null");
+                // mysqli_query($koneksi, "UPDATE nilai set online='1' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
+            }
             jump("$homeurl/testongoing/$ac/$id_siswa");
         endif;
     } else {
