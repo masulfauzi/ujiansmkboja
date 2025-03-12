@@ -1,25 +1,25 @@
 <?php
 
-    $browser = $_SERVER['HTTP_USER_AGENT'];
-    // die($browser);
-    $app = $_SERVER['HTTP_X_REQUESTED_WITH'];
-    // die($app);
+// $browser = $_SERVER['HTTP_USER_AGENT'];
+// // die($browser);
+// $app = $_SERVER['HTTP_X_REQUESTED_WITH'];
+// // die($app);
 
-    $pecah  = explode('SEB', $browser);
-    $pecah2 = explode('EXAM', $app);
-    $pecah3 = explode('exam', $app);
+// $pecah = explode('SEB', $browser);
+// $pecah2 = explode('EXAM', $app);
+// $pecah3 = explode('exam', $app);
 
-    if (count($pecah) <= 1) {
-        if (count($pecah2) <= 1) {
-            if (count($pecah3) <= 1) {
-                echo "Anda terdeksi tidak menggunakan aplikasi Exambro ataupun SEB. Anda tidak bisa mengerjakan ujian ini.";
-                die();
-            }
-        }
-    }
+// if (count($pecah) <= 1) {
+// 	if (count($pecah2) <= 1) {
+// 		if (count($pecah3) <= 1) {
+// 			echo "Anda terdeksi tidak menggunakan aplikasi Exambro ataupun SEB. Anda tidak bisa mengerjakan ujian ini.";
+// 			die();
+// 		}
+// 	}
+// }
 
-    require "config/config.default.php";
-    require "config/config.candy.php";
+require "config/config.default.php";
+require "config/config.candy.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,14 +44,16 @@
 	<link rel='stylesheet' href='<?php echo $homeurl; ?>/plugins/sweetalert2/dist/sweetalert2.min.css'>
 </head>
 
-<body style="background: url('<?php echo $setting['bc'] ?>');background-size:cover;background-position: center;background-repeat: no-repeat;">
+<body
+	style="background: url('<?php echo $setting['bc'] ?>');background-size:cover;background-position: center;background-repeat: no-repeat;">
 
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="animated flipInX wrap-login100" style="padding-top:30px">
 				<form id="formlogin" action="ceklogin.php" class="login100-form validate-form">
 					<span class="animated infinite pulse delay-5s login100-form-title p-b-26 ">
-						<img src="<?php echo $setting['logo']; ?>" style="max-height:50px" class="img-responsive" alt="Responsive image">
+						<img src="<?php echo $setting['logo']; ?>" style="max-height:50px" class="img-responsive"
+							alt="Responsive image">
 					</span>
 					<span class=" login100-form-title p-b-26 ">
 						<?php echo $setting['sekolah']; ?>
@@ -78,7 +80,7 @@
 								Login
 							</button>
 						</div>
-						<p><small>Support By						                     <?php echo APLIKASI . " v" . VERSI . " r" . REVISI ?></small></p>
+						<p><small>Support By <?php echo APLIKASI . " v" . VERSI . " r" . REVISI ?></small></p>
 					</div>
 
 
@@ -100,8 +102,8 @@
 	<script src='<?php echo $homeurl; ?>/plugins/sweetalert2/dist/sweetalert2.min.js'></script>
 	<script src="dist/js/main.js"></script>
 	<script>
-		$(document).ready(function() {
-			$('#formlogin').submit(function(e) {
+		$(document).ready(function () {
+			$('#formlogin').submit(function (e) {
 				var homeurl;
 				homeurl = '<?php echo $homeurl; ?>';
 				e.preventDefault();
@@ -109,7 +111,7 @@
 					type: 'POST',
 					url: $(this).attr('action'),
 					data: $(this).serialize(),
-					success: function(data) {
+					success: function (data) {
 
 						if (data == "ok") {
 							console.log('sukses');
