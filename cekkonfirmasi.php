@@ -1,4 +1,3 @@
-
 <?php
 require("config/config.default.php");
 require("config/config.function.php");
@@ -10,35 +9,39 @@ $idu = $_POST['idm'];
 $ids = $_POST['ids'];
 $query = mysqli_fetch_array(mysqli_query($koneksi, "SELECT * FROM ujian WHERE id_ujian='$idu'"));
 $idmapel = $query['id_mapel'];
-if ($query['token'] == 1) :
+if ($query['token'] == 1):
     $token = $_POST['token'];
     $tokencek = mysqli_fetch_array(mysqli_query($koneksi, "SELECT token FROM token"));
-    if ($token == $tokencek['token']) :
+    if ($token == $tokencek['token']):
 
         $query = mysqli_query($koneksi, "SELECT * FROM nilai WHERE id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
         $nilaix = mysqli_fetch_array($query);
         $ceknilai = mysqli_num_rows($query);
-        if ($ceknilai <> 0) :
-            if ($nilaix['ujian_selesai'] == '') :
+        if ($ceknilai <> 0):
+            if ($nilaix['ujian_selesai'] == ''):
                 include_once("aturanlanjut.php");
                 mysqli_query($koneksi, "UPDATE nilai set online='1' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
                 jump("$homeurl/testongoing/$ac/$id_siswa");
             endif;
-        else :
+        else:
             include_once("aturan.php");
             jump("$homeurl/testongoing/$ac/$id_siswa");
         endif;
-    else :
+    else:
         echo "Kode Token Salah";
     endif;
-else :
+else:
     $query = mysqli_query($koneksi, "SELECT * FROM nilai WHERE id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
     $nilaix = mysqli_fetch_array($query);
     $ceknilai = mysqli_num_rows($query);
     if ($ceknilai <> 0) {
-        if ($nilaix['ujian_selesai'] == '') :
+        if ($nilaix['ujian_selesai'] == ''):
             include_once("aturanlanjut.php");
-            mysqli_query($koneksi, "UPDATE nilai set online='1' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
+            if ($nilaix['ujian_mulai'] == '') {
+                mysqli_query($koneksi, "UPDATE nilai set online='1', ujian_mulai = date('Y-m-d H:i:s') where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
+            } else {
+                mysqli_query($koneksi, "UPDATE nilai set online='1' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
+            }
             jump("$homeurl/testongoing/$ac/$id_siswa");
         endif;
     } else {

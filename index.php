@@ -348,7 +348,8 @@ $tglsekarang = time();
                                                                     }
                                                                 }
                                                             } else {
-                                                                $btntest = "<button class='btn btn-block btn-danger btn-sm disabled'> Eloy</button>";
+                                                                // $btntest = "<button class='btn btn-block btn-danger btn-sm disabled'> Eloy</button>";
+                                                                $btntest = "<button data-id='$mapelx[id_ujian]' data-ids='$id_siswa' class='btnmulaitest btn btn-block btn-sm btn-success'><i class='fas fa-edit'></i> LANJUTKAN</button>";
                                                             }
                                                         endif;
                                                     endif;
