@@ -40,10 +40,10 @@ else:
             if ($nilaix['ujian_mulai'] == NULL) {
                 $jam_mulai = date('Y-m-d H:i:s');
                 mysqli_query($koneksi, "UPDATE nilai set online='1', ujian_mulai = '$jam_mulai' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
-                die("ujian mulai null");
+                // die("ujian mulai null");
             } else {
-                die("ujian mulai not null");
-                // mysqli_query($koneksi, "UPDATE nilai set online='1' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
+                // die("ujian mulai not null");
+                mysqli_query($koneksi, "UPDATE nilai set online='1' where id_mapel='$idmapel' AND id_siswa='$ids' AND id_ujian='$idu'");
             }
             jump("$homeurl/testongoing/$ac/$id_siswa");
         endif;
