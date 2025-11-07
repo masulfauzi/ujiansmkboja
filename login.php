@@ -8,15 +8,13 @@ $app = $_SERVER['HTTP_X_REQUESTED_WITH'];
 $pecah = explode('SEB', $browser);
 $pecah2 = explode('EXAM', $app);
 $pecah3 = explode('exam', $app);
-$pecah4 = explode('Android', $browser);
+//$pecah4 = explode('Android', $browser);
 
 if (count($pecah) <= 1) {
 	if (count($pecah2) <= 1) {
 		if (count($pecah3) <= 1) {
-			if (count($pecah4) <= 1) {
-				echo "Anda terdeksi tidak menggunakan aplikasi Exambro ataupun SEB. Anda tidak bisa mengerjakan ujian ini.";
-				die();
-			}
+			echo "Anda terdeksi tidak menggunakan aplikasi Exambro ataupun SEB. Anda tidak bisa mengerjakan ujian ini.";
+			die();
 		}
 	}
 }
@@ -175,5 +173,6 @@ require "config/config.candy.php";
 	</script>
 
 </body>
+
 
 </html>
